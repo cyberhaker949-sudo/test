@@ -1,0 +1,20 @@
+name: Direct GitHub Actions Google Ping
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # Bu setir bize GitHub sahypasyndan düwme arkaly el bilen işletmäge-de rugsat berýär
+
+jobs:
+  ping-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repository Checkout
+      uses: actions/checkout@v4
+
+    - name: Google-a Göni Ping Ugratmak
+      run: |
+        echo "Google serwerine baglanyşyk barlanýar..."
+        ping -c 4 google.com
+        echo "Üstünlikli! Google-a baglanyşyk guruldy."
